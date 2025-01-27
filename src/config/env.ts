@@ -10,4 +10,7 @@ export const env = {
       clientSecret: process.env.AUTH_GITHUB_SECRET!,
     },
   },
+  uploadthing: {
+    token: process.env.UPLOADTHING_TOKEN!,
+  },
 }
