@@ -22,10 +22,10 @@ export function UserSelectionForm({ onSelect }: UserSelectionFormProps) {
         <Button
           onClick={() => onSelect("employer")}
           variant="outline"
-          className="hover:border-primary hover:bg-primary/5 h-auto w-full items-center gap-4 border-2 p-6 transition-all duration-200"
+          className="h-auto w-full items-center gap-4 rounded-b-none border-2 p-6 transition-all duration-200 hover:border-primary hover:bg-primary/5"
         >
-          <div className="bg-primary/10 flex size-12 items-center justify-center rounded-full">
-            <Building2Icon className="text-primary size-6" />
+          <div className="flex size-12 items-center justify-center rounded-full bg-primary/10">
+            <Building2Icon className="size-6 text-primary" />
           </div>
           <div className="text-left">
             <h3 className="text-lg font-semibold">Employer</h3>
@@ -38,10 +38,10 @@ export function UserSelectionForm({ onSelect }: UserSelectionFormProps) {
         <Button
           onClick={() => onSelect("employee")}
           variant="outline"
-          className="hover:border-primary hover:bg-primary/5 h-auto w-full items-center gap-4 border-2 p-6 transition-all duration-200"
+          className="h-auto w-full items-center gap-4 rounded-t-none border-2 p-6 transition-all duration-200 hover:border-primary hover:bg-primary/5"
         >
-          <div className="bg-primary/10 flex size-12 items-center justify-center rounded-full">
-            <User2Icon className="text-primary size-6" />
+          <div className="flex size-12 items-center justify-center rounded-full bg-primary/10">
+            <User2Icon className="size-6 text-primary" />
           </div>
           <div className="text-left">
             <h3 className="text-lg font-semibold">Employee</h3>
