@@ -185,17 +185,18 @@ export function EmployerForm() {
                       onClick={() => field.onChange("")}
                       size="icon"
                       variant="destructive"
-                      className="absolute -right-2 -top-2"
+                      className="absolute -top-2 -right-2"
                     >
                       <XIcon />
                     </Button>
                   </div>
                 ) : (
+                  // Implement custom upload button
                   <UploadDropzone
                     endpoint="imageUploader"
                     onClientUploadComplete={(res) => field.onChange(res[0].url)}
                     onUploadError={(err) => console.error(err)}
-                    className="ut-button:bg-primary ut-button:text-foreground ut-button:hover:bg-primary/90 ut-label:text-muted-foreground ut-allowed-content:text-muted-foreground ut-upload-icon:text-muted-foreground border-primary"
+                    className="[&_button]:bg-primary [&_button]:text-background ut-button:hover:bg-primary/90 [&_label]:text-muted-foreground [&_allowedContent]:text-muted-foreground ut-upload-icon:text-muted-foreground border-primary"
                   />
                 )}
               </FormControl>
