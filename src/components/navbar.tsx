@@ -1,10 +1,11 @@
-import { LogInIcon, LogOutIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Button, buttonVariants } from "@/components/ui/button"
-import { auth, signOut } from "@/server/auth"
+import { buttonVariants } from "@/components/ui/button"
+import { auth } from "@/server/auth"
+
+import { UserDropdown } from "./user-dropdown"
 
 export async function Navbar() {
   const session = await auth()
@@ -13,38 +14,37 @@ export async function Navbar() {
     <nav className="flex items-center justify-between py-5">
       <Link href="/" className="flex items-center gap-2">
         <Image src="/logo.png" alt="logo" width={40} height={40} />
-        <h1 className="hidden text-2xl font-bold sm:block">
+        <h1 className="text-2xl font-bold">
           Job<span className="text-primary">Marshal</span>
         </h1>
       </Link>
 
-      <div className="flex items-center gap-4">
+      {/* Desktop Nav */}
+      <div className="items-center gap-5 max-md:hidden md:flex">
         <ThemeToggle />
 
+        <Link
+          href="/post-job"
+          className={buttonVariants({
+            size: "lg",
+          })}
+        >
+          Post a Job
+        </Link>
         {session?.user ? (
-          <form
-            action={async () => {
-              "use server"
-
-              await signOut({
-                redirectTo: "/",
-              })
-            }}
-          >
-            <Button variant="outline">
-              <LogOutIcon />
-              Logout
-            </Button>
-          </form>
+          <UserDropdown
+            name={session.user.name as string}
+            email={session.user.email as string}
+            image={session.user.image as string}
+          />
         ) : (
           <Link
             href="/login"
             className={buttonVariants({
-              variant: "default",
+              size: "lg",
             })}
           >
-            <LogInIcon />
-            Login
+            Log In
           </Link>
         )}
       </div>

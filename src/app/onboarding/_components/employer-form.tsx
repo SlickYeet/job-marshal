@@ -26,7 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { countryList } from "@/utils/countries"
+import { COUNTRY_LIST } from "@/utils/countries"
 import { UploadDropzone } from "@/utils/uploadthing"
 import { EmployerSchema } from "@/validators"
 
@@ -100,7 +100,7 @@ export function EmployerForm() {
                       {/*
                         // TODO: Add search functionality via combobox
                       */}
-                      {countryList.map((country) => (
+                      {COUNTRY_LIST.map((country) => (
                         <SelectItem key={country.code} value={country.name}>
                           <span>{country.flagEmoji}</span>
                           <span className="pl-2">{country.name}</span>
@@ -145,6 +145,7 @@ export function EmployerForm() {
           />
         </div>
 
+        {/* About */}
         <FormField
           control={form.control}
           name="about"
@@ -163,6 +164,7 @@ export function EmployerForm() {
           )}
         />
 
+        {/* Logo */}
         <FormField
           control={form.control}
           name="logo"

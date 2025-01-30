@@ -92,6 +92,8 @@ model Employer {
     userId String
     user   User   @relation(references: [id], fields: [userId], onDelete: Cascade, onUpdate: Cascade)
 
+    jobPostings JobPost[]
+
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
@@ -113,4 +115,32 @@ model Employee {
     updatedAt DateTime @updatedAt
 
     @@unique([userId])
+}
+
+enum JOB_POST_STATUS {
+    DRAFT
+    ACTIVE
+    EXPIRED
+}
+
+model JobPost {
+    id String @id @default(cuid())
+
+    title           String
+    description     String
+    employmentType  String
+    location        String
+    salaryFrom      Int
+    salaryTo        Int
+    listingDuration Int
+    benefits        String[]
+    status          JOB_POST_STATUS @default(DRAFT)
+
+    employerId String
+    employer   Employer @relation(fields: [employerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([employerId])
 }
