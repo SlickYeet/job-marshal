@@ -13,4 +13,7 @@ export const env = {
   uploadthing: {
     token: process.env.UPLOADTHING_TOKEN!,
   },
+  arcjet: {
+    key: process.env.ARCJET_KEY!,
+  },
 }

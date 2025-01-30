@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 
-import { createEmployer } from "@/actions/employer"
+import { createEmployer } from "@/actions"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -209,10 +209,10 @@ export function EmployerForm() {
           {isPending ? (
             <>
               <Loader2 className="animate-spin" />
-              Creating Employer...
+              Submitting...
             </>
           ) : (
-            "Create Employer"
+            "Submit"
           )}
         </Button>
       </form>

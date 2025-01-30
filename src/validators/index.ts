@@ -14,3 +14,9 @@ export const EmployerSchema = z.object({
   // TODO: allow for multiple social accounts
   socialAccount: z.string().optional(),
 })
+
+export const EmployeeSchema = z.object({
+  name: z.string().min(2, "Name is too short"),
+  about: z.string().min(10, "Please provide more information about yourself"),
+  resume: z.string().min(1, "Please provide a resume"),
+})
